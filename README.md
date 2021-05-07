@@ -11,7 +11,7 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
 ### What this project includes
 - Transfer Learning Toolkit (TLT) scripts:
 	- Dataset processing script to convert it in KITTI format 
-	- Specification files for configuring tlt-train, tlt-prune, tlt-evalute
+	- Specification files for configuring tlt train, tlt prune, tlt evalute
 - DeepStream (DS) scripts:
 	- deepstream-app config files (For demo on single stream camera and detection on stored video file)
 
@@ -41,7 +41,7 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
           - Run the docker image:
               ```
               docker run --gpus all -it -v "/path/to/dir/on/host":"/path/to/dir/in/docker" \
-                            -p 8888:8888 nvcr.io/nvidia/tlt-streamanalytics:v2.0_py3 /bin/bash
+                            -p 8888:8888 nvcr.io/nvidia/tlt-streamanalytics:v3.0-dp-py3 /bin/bash
               ```
       - Clone Git repo in TLT container:
           ```
@@ -121,7 +121,6 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
 
 *Note:*<br>
     - ```model-engine-file``` is generated at first run; once done you can locate it in same directory as ```.etlt```
-    - In case you want to generate ```model-engine-file``` before first run; use [tlt-converter](https://docs.nvidia.com/metropolis/TLT/tlt-getting-started-guide/index.html#gen_eng_tlt_converter)
 
 
 ## Evaluation Results on NVIDIA Jetson Platform
@@ -165,14 +164,14 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
 ## NVIDIA Transfer Learning Toolkit (TLT) Training Flow <br/>
 1. Download Pre-trained model ( For Mask Detection application, we have experimented with Detectnet_v2 with ResNet18 backbone)
 2. Convert dataset to KITTI format
-3. Train Model (tlt-train)
-4. Evaluate on validation data or infer on test images (tlt-evaluate,  tlt-infer)
-5. Prune trained model (tlt-prune)<br/>
+3. Train Model (tlt train)
+4. Evaluate on validation data or infer on test images (tlt evaluate,  tlt infer)
+5. Prune trained model (tlt prune)<br/>
    Pruning model will help you to reduce parameter count thus improving FPS performance
-6. Retrain pruned model (tlt-train)
-7. Evaluate re-trained model on validation data (tlt-evaluate)
+6. Retrain pruned model (tlt train)
+7. Evaluate re-trained model on validation data (tlt evaluate)
 8. If accuracy does not fall below satisfactory range in (7); perform step (5), (6), (7); else go to step (9)
-9. Export trained model from step (6) (tlt-export)<br/>
+9. Export trained model from step (6) (tlt export)<br/>
    Choose int8, fp16 based on you platform needs; such as Jetson Xavier and Jetson Xavier-NX has int8 DLA support
 
 ### Interesting Resources

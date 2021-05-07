@@ -55,7 +55,7 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
   - On NVIDIA Jetson:
       - [Install DeepStream](https://docs.nvidia.com/metropolis/deepstream/dev-guide/index.html#page/DeepStream_Development_Guide/deepstream_quick_start.html#wwpID0E0GI0HA)
 
-- Prepare input data set (On training machine)
+- Prepare downloaded input data set (On training machine). Skip it and see the next step if you want to create your own data set.
     - We expect downloaded data in [this](https://github.com/NVIDIA-AI-IOT/face-mask-detection/blob/master/data_utils/data-tree.txt) structure.
     - Convert data set to KITTI format
       ``` cd face-mask-detection ``` <br/>
@@ -91,7 +91,11 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
       ```
    *Note: You might get warnings; you can safely ignore it*
 
-    
+- Alternatively, create your own data set.
+    - You can use [labelImg](https://github.com/tzutalin/labelImg) application for annotations
+    - Label your images in YOLO format
+    - Use yolo2kitti.c program to convert it to KITTI format. Adapt inputs in the code, compile it (gcc yolo2kitti.c -o yolo2kitti) and run it (./yolo2kitti) this command to convert your label files.
+
 - Perform training using [TLT training flow](https://github.com/NVIDIA-AI-IOT/face-mask-detection#nvidia-transfer-learning-toolkit-tlt-training-flow-)
     - Use ['face-mask-detection'](https://github.com/NVIDIA-AI-IOT/face-mask-detection/blob/master/face-mask-detection.ipynb) Jupyter Notebook provided with this repository. 
     - Follow TLT training flow

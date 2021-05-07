@@ -37,7 +37,7 @@ By the end of this project; you will be able to build DeepStream app on Jetson p
       - Install NVIDIA Docker Container: [installation instructions](https://developer.nvidia.com/blog/gpu-containers-runtime/) [TLT Toolkit Requirements](https://docs.nvidia.com/metropolis/TLT/tlt-getting-started-guide/index.html#requirements) <br/>
       - [Running Transfer Learning Toolkit using Docker](https://ngc.nvidia.com/catalog/containers/nvidia:tlt-streamanalytics)
           - Pull docker container:<br/>
-              ```docker pull nvcr.io/nvidia/tlt-streamanalytics:v2.0_py3```
+              ```docker pull nvcr.io/nvidia/tlt-streamanalytics:v3.0-dp-py3```
           - Run the docker image:
               ```
               docker run --gpus all -it -v "/path/to/dir/on/host":"/path/to/dir/in/docker" \
